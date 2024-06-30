@@ -15,9 +15,8 @@ class UserSerializer(serializers.ModelSerializer):
         Token.objects.create(user=user)
         return user
 
-    
-
 class BlogPostSerializer(serializers.ModelSerializer):
+    author = UserSerializer(read_only=True)
     class Meta:
         model = BlogPost
         fields = ['id', 'title', 'content', 'publication_date', 'author']
