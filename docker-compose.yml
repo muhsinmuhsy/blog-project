@@ -1,3 +1,5 @@
+# docker-compose.yml
+
 version: '3.8'
 
 services:
@@ -5,10 +7,18 @@ services:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     environment:
-      - SECRET_KEY=your_secret_key_here
+      - SECRET_KEY=django-insecure-&@l66^fp)=-$u254usl&_b$h3n!kxopw2a1@zho$u%#n8&nmyt
       - DEBUG=True
       - ALLOWED_HOSTS=localhost,127.0.0.1
+      - REDIS_HOST=redis
     volumes:
       - .:/app
     ports:
       - "8000:8000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"

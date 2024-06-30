@@ -55,3 +55,6 @@ INFO 2024-07-01 00:24:06,955 api User muhsy2 logged out successfully.
 DEBUG 2024-07-01 00:24:23,458 api Received signup data: <QueryDict: {'first_name': ['muhammad'], 'last_name': ['muhsinww'], 'email': ['muhsy2@example.com'], 'password': ['1Password'], 'confirm_password': ['1Password'], 'username': ['muhsy2']}>
 ERROR 2024-07-01 00:24:23,466 api Signup failed: Username already exists.
 INFO 2024-07-01 02:24:52,213 views User meena logged in successfully.
+INFO 2024-06-30 21:22:47,385 views User meena logged in successfully.
+INFO 2024-07-01 02:58:51,869 views User meena logged in successfully.
+INFO 2024-06-30 21:42:22,458 views User meena logged in successfully.
