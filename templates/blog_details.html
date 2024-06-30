@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog Detals{% endblock %}
+
+{% block content %}
+
+    <div class="container mt-3">
+        
+        <h3 class="text-center">{{ blog.title }}</h3>
+        <span class="card-subtitle mb-2 text-body-secondary fw-bold me-2">{{ blog.publication_date|date:"d/m/Y" }}</span>
+        <span class="card-subtitle mb-2 text-success fw-bold">{{ blog.author.first_name }} {{ blog.author.last_name }}</span>
+                
+        <p class="mt-2" style="text-align: justify;">{{ blog.content }}</p>
+        
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,33 @@
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <a href="{% url 'home' %}" class="text-decoration-none">
+            <span class="navbar-brand mb-0 h1">ProjectBlog</span>
+        </a>
+       
+        
+        <div class="justify-content-end">
+            {% if user.is_authenticated %}
+                {% if current_page == 'home' %}
+                    <a href="{% url 'your_blogs' %}" class="btn btn-secondary me-2">Your Blogs</a>
+                {% elif current_page == 'your_blogs' %}
+                    <a href="{% url 'home' %}" class="btn btn-secondary me-2">Back</a>
+                {% elif current_page == 'add_blog' %}
+                    <a href="{% url 'your_blogs' %}" class="btn btn-secondary me-2">Back</a>
+                {% elif current_page == 'edit_blog' %}
+                    <a href="{% url 'your_blogs' %}" class="btn btn-secondary me-2">Back</a>
+                {% elif current_page == 'profile' %}
+                    <a href="{% url 'your_blogs' %}" class="btn btn-secondary me-2">Your Blogs</a>
+                {% endif %}
+                {% if current_page == 'profile' %}
+                    <a href="{% url 'home' %}" class="btn btn-primary me-2">Back</a>
+                {% else %}
+                    <a href="{% url 'profile' %}" class="btn btn-primary">Profile</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'register' %}" class="btn btn-secondary me-2">Register</a>
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+            {% endif %}
+        </div>
+            
+    </div>
+</nav>

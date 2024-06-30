@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Blogs{% endblock %}
+
+{% block content %}
+    <a href="{% url 'add_blog' %}" class="btn btn-primary w-100 mt-2" type="submit">Add Blog</a>
+
+    <div class="row">
+        {% for blog in blogs %}
+            <div class="col-12 col-md-6">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ blog.title }}</h5>
+                        <p class="card-text">{{ blog.content|truncatewords:20 }}</p>
+                        <div class="d-flex justify-content-between">
+                            <span class="card-subtitle mb-2 text-body-secondary fw-bold">{{ blog.publication_date|date:"d/m/Y" }}</span>
+                            <div>
+                                <a href="{% url 'blog_details' blog.id %}" class="card-subtitle mb-2 text-primary fw-bold me-2  text-decoration-none">View</a>
+                                <a href="{% url 'edit_blog' blog.id %}" class="card-subtitle mb-2 text-success fw-bold me-2  text-decoration-none">Edit</a>
+                                <a href="{% url 'delete_blog' blog.id %}"
+                                    onclick="return confirm('Do you want to delete {{ blog.title }}?')"
+                                    class="card-subtitle mb-2 text-danger fw-bold text-decoration-none">
+                                Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+        <p class="text-center mt-5">Empty</p>
+        {% endfor %}
+    </div>
+    
+    
+{% endblock %}

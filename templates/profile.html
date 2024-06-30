@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+    <ul class="list-group mt-3 w-md-50">
+        <li class="list-group-item">
+            <span class="fw-bold">First Name:</span>
+            <span> {{ user.first_name }}</span>
+        </li>
+        <li class="list-group-item">
+            <span class="fw-bold">Last Name:</span>
+            <span> {{ user.last_name }}</span>
+        </li>
+        <li class="list-group-item">
+            <span class="fw-bold">Email:</span>
+            <span> {{ user.email }}</span>
+        </li>
+        <li class="list-group-item">
+            <span class="fw-bold">Username:</span>
+            <span> {{ user.username }}</span>
+        </li>
+    </ul>
+    <a href="{% url 'logout' %}" class="btn btn-danger w-100 mt-2">Logout</a>
+    
+
+{% endblock %}
+        
+
+        
