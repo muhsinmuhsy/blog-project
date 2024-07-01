@@ -112,7 +112,7 @@ class BlogPostPagination(PageNumberPagination):
     max_page_size = 10000
     
 class BlogPostListView(generics.ListAPIView):
-    queryset = BlogPost.objects.all().order_by('-id')
+    queryset = BlogPost.objects.all().order_by('-publication_date')
     serializer_class = BlogPostSerializer
     permission_classes = [AllowAny]
     pagination_class = BlogPostPagination
